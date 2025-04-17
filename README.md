@@ -11,4 +11,4 @@ First of all, you need to create virtual environment and install all dependencie
 
 # Running a project
 
-In command line with a directory of your project run command **streamlit run app.py**. The project should start and you will be able to test it.
+In command line with a directory of your project run command **streamlit run app.py**. The project should start and you will be able to test it. 
