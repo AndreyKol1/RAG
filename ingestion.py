@@ -1,6 +1,5 @@
-import streamlit as st
 from transformers import pipeline
-
+import streamlit as st
 ner = pipeline("ner", "dslim/bert-large-NER", tokenizer="dslim/bert-large-NER", aggregation_strategy="simple") # initializing BERT for NER (additional check for relevance apart from keyboard)
 
 
