@@ -7,3 +7,4 @@ serpapi==0.1.5
 streamlit==1.44.1
 torch==2.6.0
 transformers==4.51.3
+chromadb==1.0.5
