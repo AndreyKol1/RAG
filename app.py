@@ -32,7 +32,7 @@ def online_search(user_question):
                 st.markdown(f"Event {i}: {event['title']}")
                 st.markdown(f"Link: {event['link']}")
                 st.markdown(f"Date: {event['date']}")
-                st.markdown(f"Location: {event["location"]}")
+                st.markdown(f"Location: {event['location']}")
 
 # main function with ui and additional logic
 def main():
