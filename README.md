@@ -1,14 +1,74 @@
-# ProvectusInternship project AndriiKoliush
+# RAG
+**Document Relevance Checker & Question Answering System**
 
-# Approach and design choices
+## Project Information
 
-I decided to start with UI at first, because it much easier to see what you do and how everything working and connected. The UI contain two main fields: question filed and document uploading field. I decided to change a little bit execution of first task by avoiding querying "upload documents to database" by simply adding **Process** button, which does it. The process of checking document relevance is divided into two stages: NER and keyword matching. Large Bert gives most of the times meaningful information. Of course, for other topic it will also return information about ["PER", "LOC", "ORG", "MISC"], but I decided to add it as additional check, because seemed interesting to me to use it in that way. Main check is a keyword matching, which simply looks for keywords, which are related to the concert topic. After processing the document the summarization is given to the user, all documents are saved in ChromaDB, and the LLM, which will answer user questing, is instantiated. For summarization my choice was bart-large because it gave the most meaningful summary from light-weight models. ChromaDB was chosen because of it flexibility and easy to use. For LLM flan-t5-base was picked because it fits the same needs as summarization model. For bonus task, SerpAPi was chosen because of it user-friendly and simple documentation and free tier for 100 requests per month, which allows to test it properly. 
+**RAG concert** is a lightweight tool designed to evaluate the relevance of uploaded documents to a user-specified query using Retrieval-Augmented Generation (RAG). It combines NER-based preprocessing, keyword filtering, document summarization, and large language models (LLMs) to provide meaningful answers and insights—all through an easy-to-use web interface.
+
+---
+
+## Features
+
+- Upload and process documents in one click  
+- Named Entity Recognition and keyword-based relevance filtering  
+- Automatic document summarization  
+- Vector storage with ChromaDB  
+- Question answering using a lightweight LLM (Flan-T5)  
+- Optional web search using SerpAPI  
+- Intuitive UI for a seamless user experience
+
+---
+
+## Installation
+
+It’s recommended to use a virtual environment. After activating it, install all dependencies with:
+
+```bash
+pip install -r requirements.txt
+```
+
+## API Keys
+This project requires API keys for:
+
+Hugging Face (for models like bert-large, bart-large, and flan-t5-base)
+
+SerpAPI (optional, for web search)
+
+### Setup:
+Create a token at Hugging Face Tokens with read access.
+
+Get a token at SerpAPI.
+
+Create a .env file in the project directory with the following:
+
+HUGGINGFACEHUB_API_TOKEN=your_huggingface_token
+SERPAPI=your_serpapi_token
+
+## Usage 
+
+To lauch the app run a command below
+
+```bash
+streamlit run app.py
+```
+
+Once the UI loads, you can:
+
+1. Enter a question related to a topic of interest.
+2. Upload one or more documents.
+
+## Tech stack
+
+1. Frontend: Streamlit
+2. Backend: FastAPI + Python
+3. NER: bert-large
+4. Summarization: bart-large
+5. LLM (QA): flan-t5-base
+6. Vector Store: ChromaDB
+7. Search (Optional): SerpAPI
 
 
-# Project set-up
 
-First of all, you need to create virtual environment and install all dependencies from requirements file by running command **pip install -r requirements.txt**. Secondly, you need to have two APIs: Hugging Face and SerpAPI. The link for Hugging Face: https://huggingface.co/settings/tokens. Create a new token with a Read mode. The link for SerpAPI: https://serpapi.com/manage-api-key. Copy your private token. Then, you need to create .env file and assign tokens to them. For Hugging Face name should be HUGGINGFACEHUB_API_TOKEN and for SerpAPI SERPAPI. 
 
-# Running a project
 
-In command line with a directory of your project run command **streamlit run app.py**. The project should start and you will be able to test it. 
+
